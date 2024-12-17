@@ -46,7 +46,8 @@ if (Test-Path -LiteralPath "$toolchain_dist_temp_path") {
 Write-Host -NoNewline "Extracting Windows toolchain.."
 # This is faster than Expand-Archive
 Add-Type -Assembly "System.IO.Compression.Filesystem"
-[System.IO.Compression.ZipFile]::ExtractToDirectory("$toolchain_zip_temp_path", "$download_dir")
+Add-Type -Assembly "System.Text.Encoding"
+[System.IO.Compression.ZipFile]::ExtractToDirectory("$toolchain_zip_temp_path", "$download_dir", [System.Text.Encoding]::UTF8)
 # Expand-Archive -LiteralPath "$toolchain_zip_temp_path" -DestinationPath "$download_dir"
 
 Write-Host -NoNewline "moving.."
