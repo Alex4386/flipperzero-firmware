@@ -16,15 +16,15 @@ $toolchain_dist_temp_path = "$download_dir\$toolchain_dist_folder"
 try {
 
 if (Test-Path -LiteralPath "$toolchain_target_path") {
-	Write-Host -NoNewline "Removing old Windows toolchain.."
-	Remove-Item -LiteralPath "$toolchain_target_path" -Force -Recurse
-	Write-Host "done!"
+    Write-Host -NoNewline "Removing old Windows toolchain.."
+    Remove-Item -LiteralPath "$toolchain_target_path" -Force -Recurse
+    Write-Host "done!"
 }
 
 if (Test-path -LiteralPath  "$toolchain_target_path\..\current") {
-	Write-Host -NoNewline "Unlinking 'current'.."
+    Write-Host -NoNewline "Unlinking 'current'.."
     Remove-Item -LiteralPath "$toolchain_target_path\..\current" -Force
-	Write-Host "done!"
+    Write-Host "done!"
 }
 
 if (!(Test-Path -LiteralPath "$toolchain_zip_temp_path" -PathType Leaf)) {
